@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4n6 — Digital Forensics Cheat Sheet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h1 class="logo">4<span>n</span>6</h1>
+      <p class="tagline">forensics cheat sheet</p>
+    </div>
+
+    <div class="sidebar-section">
+      <h3>OS</h3>
+      <div class="chips" id="filter-os"></div>
+    </div>
+
+    <div class="sidebar-section">
+      <h3>Phase</h3>
+      <div class="chips" id="filter-phase"></div>
+    </div>
+
+    <div class="sidebar-section">
+      <h3>Category</h3>
+      <div class="chips" id="filter-category"></div>
+    </div>
+
+    <div class="sidebar-section">
+      <h3>Tool</h3>
+      <div class="chips" id="filter-tool"></div>
+    </div>
+
+    <div class="sidebar-footer">
+      <button class="clear-btn" id="clear-filters">Clear All Filters</button>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="main-wrapper">
+    <header class="topbar">
+      <button class="menu-btn" id="menu-btn" title="Toggle sidebar">&#9776;</button>
+      <div class="search-wrapper">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="search-input" placeholder="Search tools, commands, techniques..." spellcheck="false">
+      </div>
+      <span class="entry-count" id="entry-count"></span>
+      <button class="topbar-btn" id="settings-btn" title="Variables">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      </button>
+      <button class="topbar-btn" id="theme-switch" title="Toggle theme">
+        <span id="toggle-icon">&#9790;</span>
+      </button>
+    </header>
+
+    <!-- Settings Dropdown -->
+    <div class="settings-panel" id="settings-panel">
+      <h3>Variables <span class="settings-hint">Auto-replace in commands</span></h3>
+      <div class="var-fields">
+        <div class="var-field">
+          <label>DUMP_FILE</label>
+          <input type="text" id="var-dump" placeholder="memory.raw" spellcheck="false">
+        </div>
+        <div class="var-field">
+          <label>IMAGE</label>
+          <input type="text" id="var-image" placeholder="disk.dd" spellcheck="false">
+        </div>
+        <div class="var-field">
+          <label>PCAP</label>
+          <input type="text" id="var-pcap" placeholder="capture.pcap" spellcheck="false">
+        </div>
+        <div class="var-field">
+          <label>TARGET_IP</label>
+          <input type="text" id="var-target" placeholder="10.10.10.1" spellcheck="false">
+        </div>
+        <div class="var-field">
+          <label>FILE</label>
+          <input type="text" id="var-file" placeholder="suspicious.bin" spellcheck="false">
+        </div>
+      </div>
+    </div>
+
+    <div class="content-layout">
+      <main id="entries-container"></main>
+
+      <!-- Right Pane -->
+      <aside class="right-pane" id="right-pane">
+        <div class="right-section">
+          <h3 class="right-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+            Bookmarks
+          </h3>
+          <div id="bookmarks-list" class="bookmarks-list">
+            <p class="empty-state">No bookmarks yet. Click the bookmark icon on any entry to pin it here.</p>
+          </div>
+        </div>
+
+        <div class="right-section contribute-section">
+          <p class="contribute-text">If you would like to contribute, check out the <a href="contribute.html">contribute</a> page.</p>
+        </div>
+
+      </aside>
+    </div>
+
+    <footer>
+      <p>4n6 &mdash; Digital Forensics Reference for CTF &amp; Investigations</p>
+      <p>Inspired by <a href="https://thureinoo.github.io/senshu/" target="_blank">Senshu</a>, <a href="https://wadcoms.github.io/" target="_blank">WADComs</a> &amp; <a href="https://gtfobins.github.io/" target="_blank">GTFOBins</a></p>
+    </footer>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
