@@ -4,24 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contribute — 4n6</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #111318;
-      --bg-card: #15171e;
-      --text: #b8bcc8;
-      --text-dim: #555b6e;
-      --text-bright: #e8eaf0;
-      --accent: #4a9eff;
-      --border: #222530;
-      --code-bg: #0d0f14;
-      --code-border: #1e2130;
-      --mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
-      --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    }
-
-    [data-theme="light"] {
       --bg: #f8f9fb;
       --bg-card: #fff;
       --text: #444a5a;
@@ -31,6 +18,20 @@
       --border: #e8eaef;
       --code-bg: #f4f5f8;
       --code-border: #e4e6ec;
+      --mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+      --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    [data-theme="dark"] {
+      --bg: #111318;
+      --bg-card: #15171e;
+      --text: #b8bcc8;
+      --text-dim: #555b6e;
+      --text-bright: #e8eaf0;
+      --accent: #4a9eff;
+      --border: #222530;
+      --code-bg: #0d0f14;
+      --code-border: #1e2130;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -39,7 +40,7 @@
       font-family: var(--sans);
       background: var(--bg);
       color: var(--text);
-      line-height: 1.7;
+      line-height: 1.6;
       min-height: 100vh;
     }
 
@@ -49,17 +50,13 @@
 
     .header {
       border-bottom: 1px solid var(--border);
-      padding: 1.5rem 2rem;
+      padding: 1rem 2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
 
-    .header-left {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-    }
+    .header-left { display: flex; align-items: center; gap: 1.5rem; }
 
     .logo {
       font-family: var(--mono);
@@ -71,12 +68,9 @@
     }
 
     .logo:hover { text-decoration: none; }
-    .logo span { color: var(--text-dim); }
+    .logo-img { height: 1.6rem; width: auto; display: block; }
 
-    .back-link {
-      font-size: 0.82rem;
-      color: var(--text-dim);
-    }
+    .back-link { font-size: 0.82rem; color: var(--text-dim); }
 
     .theme-btn {
       background: none;
@@ -86,64 +80,45 @@
       cursor: pointer;
       padding: 0.3rem;
     }
-
     .theme-btn:hover { color: var(--accent); }
 
     .container {
-      max-width: 720px;
+      max-width: 680px;
       margin: 0 auto;
-      padding: 3rem 2rem 4rem;
+      padding: 2rem 2rem 3rem;
     }
 
     h1 {
-      font-size: 1.8rem;
+      font-size: 1.4rem;
       font-weight: 700;
       color: var(--text-bright);
-      margin-bottom: 0.5rem;
-    }
-
-    .subtitle {
-      font-size: 0.9rem;
-      color: var(--text-dim);
-      margin-bottom: 2.5rem;
+      margin-bottom: 1.5rem;
     }
 
     h2 {
-      font-size: 1.1rem;
+      font-size: 0.95rem;
       font-weight: 700;
       color: var(--text-bright);
-      margin-top: 2.5rem;
-      margin-bottom: 0.8rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.4rem;
     }
 
-    h2 .step {
-      background: var(--accent);
-      color: #fff;
-      font-size: 0.72rem;
-      font-weight: 700;
-      width: 1.6rem;
-      height: 1.6rem;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
+    p, li { font-size: 0.84rem; }
+    p { margin-bottom: 0.5rem; }
+
+    ul {
+      margin-bottom: 0.5rem;
+      padding-left: 1.2rem;
     }
 
-    p {
-      margin-bottom: 1rem;
-      font-size: 0.88rem;
-    }
+    li { margin-bottom: 0.2rem; }
 
     code {
       font-family: var(--mono);
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       background: var(--code-bg);
       border: 1px solid var(--code-border);
-      padding: 0.15rem 0.4rem;
+      padding: 0.1rem 0.35rem;
       border-radius: 3px;
       color: var(--accent);
     }
@@ -152,56 +127,41 @@
       background: var(--code-bg);
       border: 1px solid var(--code-border);
       border-radius: 5px;
-      padding: 1.2rem;
+      padding: 0.8rem 1rem;
       overflow-x: auto;
-      margin-bottom: 1.2rem;
+      margin-bottom: 0.8rem;
       font-family: var(--mono);
-      font-size: 0.78rem;
-      line-height: 1.7;
+      font-size: 0.75rem;
+      line-height: 1.6;
       color: var(--text-bright);
     }
 
-    ul {
-      margin-bottom: 1rem;
-      padding-left: 1.2rem;
-    }
+    .tags { display: flex; flex-wrap: wrap; gap: 0.25rem; margin-bottom: 0.5rem; }
 
-    li {
-      font-size: 0.85rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .values-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem;
-      margin-bottom: 1rem;
-    }
-
-    .val {
-      font-size: 0.72rem;
+    .tag {
+      font-size: 0.68rem;
       font-weight: 600;
-      padding: 0.22rem 0.6rem;
-      border-radius: 4px;
+      padding: 0.15rem 0.5rem;
+      border-radius: 3px;
       color: #fff;
     }
 
-    .val-cat { background: #5b8af0; }
-    .val-phase { background: #8b5cf6; }
-    .val-os { background: #2eaa6e; }
+    .tag-cat { background: #5b8af0; }
+    .tag-phase { background: #8b5cf6; }
+    .tag-os { background: #2eaa6e; }
 
     .note {
       background: var(--bg-card);
       border-left: 3px solid var(--accent);
-      padding: 0.8rem 1rem;
-      margin: 1.2rem 0;
-      font-size: 0.82rem;
+      padding: 0.6rem 0.8rem;
+      margin-top: 1.5rem;
+      font-size: 0.78rem;
       border-radius: 0 4px 4px 0;
     }
 
     .footer {
       text-align: center;
-      padding: 2rem;
+      padding: 1.5rem;
       color: var(--text-dim);
       font-size: 0.7rem;
       border-top: 1px solid var(--border);
@@ -210,8 +170,8 @@
     ::-webkit-scrollbar { width: 0; }
 
     @media (max-width: 600px) {
-      .container { padding: 2rem 1rem; }
-      h1 { font-size: 1.4rem; }
+      .container { padding: 1.5rem 1rem; }
+      h1 { font-size: 1.2rem; }
     }
   </style>
 </head>
@@ -219,104 +179,84 @@
 
   <div class="header">
     <div class="header-left">
-      <a href="index.html" class="logo">4<span>n</span>6</a>
+      <a href="index.html" class="logo"><img src="assets/logo.svg" alt="4n6" class="logo-img"></a>
       <a href="index.html" class="back-link">&larr; Back to cheat sheet</a>
     </div>
     <button class="theme-btn" id="theme-switch" title="Toggle theme">
-      <span id="toggle-icon">&#9790;</span>
+      <span id="toggle-icon">&#9788;</span>
     </button>
   </div>
 
   <div class="container">
-    <h1>How to Contribute</h1>
-    <p class="subtitle">Help grow the 4n6 forensics cheat sheet by adding new tools, techniques, and references.</p>
+    <h1>Contribute</h1>
 
-    <h2><span class="step">1</span> Fork & Clone</h2>
-    <p>Fork the repository on GitHub and clone it locally:</p>
-    <pre>git clone https://github.com/thureinoo/4n6.git
-cd 4n6</pre>
-
-    <h2><span class="step">2</span> Add Your Entry</h2>
-    <p>Open <code>js/data.js</code> and add a new entry object to the <code>ENTRIES</code> array. Follow this template:</p>
+    <h2>Entry Format</h2>
+    <p>Add entries to the <code>ENTRIES</code> array in <code>js/data.js</code>:</p>
     <pre>{
   title: "Tool Name - What It Does",
-  description: "Brief description of the tool or technique",
+  description: "Brief description",
   category: ["Memory"],
   phase: ["Analysis"],
   os: ["Linux", "Windows"],
   tools: ["ToolName"],
   commands: [
-    { label: "Basic usage", cmd: "tool -f {DUMP_FILE} --option" },
-    { label: "Advanced", cmd: "tool -f {FILE} --verbose --output result.txt" }
+    { label: "Basic usage", cmd: "tool -f {DUMP_FILE} --option" }
   ],
   references: ["https://example.com/docs"]
 }</pre>
 
-    <h2><span class="step">3</span> Use Valid Values</h2>
-    <p><strong>Category:</strong></p>
-    <div class="values-grid">
-      <span class="val val-cat">Crypto/Encoding</span>
-      <span class="val val-cat">Disk</span>
-      <span class="val val-cat">File Analysis</span>
-      <span class="val val-cat">Logs</span>
-      <span class="val val-cat">Malware</span>
-      <span class="val val-cat">Memory</span>
-      <span class="val val-cat">Metadata</span>
-      <span class="val val-cat">Network</span>
-      <span class="val val-cat">Registry</span>
-      <span class="val val-cat">Stego</span>
-      <span class="val val-cat">References</span>
+    <h2>Valid Values</h2>
+    <p><strong>Category</strong></p>
+    <div class="tags">
+      <span class="tag tag-cat">Crypto/Encoding</span>
+      <span class="tag tag-cat">Disk</span>
+      <span class="tag tag-cat">File Analysis</span>
+      <span class="tag tag-cat">Logs</span>
+      <span class="tag tag-cat">Malware</span>
+      <span class="tag tag-cat">Memory</span>
+      <span class="tag tag-cat">Metadata</span>
+      <span class="tag tag-cat">Network</span>
+      <span class="tag tag-cat">Registry</span>
+      <span class="tag tag-cat">Stego</span>
+      <span class="tag tag-cat">References</span>
+    </div>
+    <p><strong>Phase</strong></p>
+    <div class="tags">
+      <span class="tag tag-phase">Acquisition</span>
+      <span class="tag tag-phase">Analysis</span>
+      <span class="tag tag-phase">Carving</span>
+      <span class="tag tag-phase">Recovery</span>
+      <span class="tag tag-phase">Timeline</span>
+      <span class="tag tag-phase">Triage</span>
+    </div>
+    <p><strong>OS</strong></p>
+    <div class="tags">
+      <span class="tag tag-os">Linux</span>
+      <span class="tag tag-os">Windows</span>
+      <span class="tag tag-os">macOS</span>
+      <span class="tag tag-os">Android</span>
+      <span class="tag tag-os">iOS</span>
     </div>
 
-    <p><strong>Phase:</strong></p>
-    <div class="values-grid">
-      <span class="val val-phase">Acquisition</span>
-      <span class="val val-phase">Analysis</span>
-      <span class="val val-phase">Carving</span>
-      <span class="val val-phase">Recovery</span>
-      <span class="val val-phase">Timeline</span>
-      <span class="val val-phase">Triage</span>
-    </div>
-
-    <p><strong>OS:</strong></p>
-    <div class="values-grid">
-      <span class="val val-os">Linux</span>
-      <span class="val val-os">Windows</span>
-      <span class="val val-os">macOS</span>
-      <span class="val val-os">Android</span>
-      <span class="val val-os">iOS</span>
-    </div>
-
-    <h2><span class="step">4</span> Use Placeholders</h2>
-    <p>Use these placeholders in commands so they auto-replace with user input:</p>
+    <h2>Placeholders</h2>
     <ul>
-      <li><code>{DUMP_FILE}</code> &mdash; Memory dump file path</li>
-      <li><code>{IMAGE}</code> &mdash; Disk image file path</li>
-      <li><code>{PCAP}</code> &mdash; Packet capture file path</li>
-      <li><code>{TARGET_IP}</code> &mdash; Target IP address</li>
-      <li><code>{FILE}</code> &mdash; Generic file path</li>
+      <li><code>{DUMP_FILE}</code> — Memory dump path</li>
+      <li><code>{IMAGE}</code> — Disk image path</li>
+      <li><code>{PCAP}</code> — Packet capture path</li>
+      <li><code>{TARGET_IP}</code> — Target IP</li>
+      <li><code>{FILE}</code> — Generic file path</li>
     </ul>
 
-    <h2><span class="step">5</span> Guidelines</h2>
-    <ul>
-      <li>Keep commands copy-paste ready</li>
-      <li>Use realistic placeholder values in examples (e.g., <code>10.10.10.1</code>)</li>
-      <li>Add a <code>references</code> array with links to official documentation</li>
-      <li>One entry per tool or closely related set of commands</li>
-      <li>Test your commands before submitting</li>
-      <li>Use existing entries as examples for formatting</li>
-    </ul>
-
-    <h2><span class="step">6</span> Submit a Pull Request</h2>
-    <p>Commit your changes and submit a pull request with a clear description of what you added:</p>
-    <pre>git checkout -b add-new-tool
-git add js/data.js
-git commit -m "Add: ToolName - brief description"
+    <h2>Submit</h2>
+    <pre>git clone https://github.com/thureinoo/4n6.git
+git checkout -b add-new-tool
+# edit js/data.js
+git commit -am "Add: ToolName - brief description"
 git push origin add-new-tool</pre>
     <p>Then open a pull request on GitHub.</p>
 
     <div class="note">
-      All contributions are reviewed before merging. Make sure your entry follows the format above and contains accurate, tested commands.
+      Keep commands copy-paste ready. Test before submitting. One entry per tool.
     </div>
   </div>
 
@@ -328,20 +268,23 @@ git push origin add-new-tool</pre>
     const saved = localStorage.getItem("4n6-theme");
     const btn = document.getElementById("theme-switch");
     const icon = document.getElementById("toggle-icon");
-    if (saved === "light") {
+    if (saved === "dark") {
+      document.documentElement.setAttribute("data-theme", "dark");
+      icon.innerHTML = "&#9790;";
+    } else {
       document.documentElement.setAttribute("data-theme", "light");
       icon.innerHTML = "&#9788;";
     }
     btn.addEventListener("click", () => {
-      const isLight = document.documentElement.getAttribute("data-theme") === "light";
-      if (isLight) {
-        document.documentElement.removeAttribute("data-theme");
-        localStorage.setItem("4n6-theme", "dark");
-        icon.innerHTML = "&#9790;";
-      } else {
+      const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+      if (isDark) {
         document.documentElement.setAttribute("data-theme", "light");
         localStorage.setItem("4n6-theme", "light");
         icon.innerHTML = "&#9788;";
+      } else {
+        document.documentElement.setAttribute("data-theme", "dark");
+        localStorage.setItem("4n6-theme", "dark");
+        icon.innerHTML = "&#9790;";
       }
     });
   </script>

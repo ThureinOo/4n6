@@ -303,21 +303,24 @@ function initTheme() {
   const btn = document.getElementById("theme-switch");
   const icon = document.getElementById("toggle-icon");
 
-  if (saved === "light") {
+  if (saved === "dark") {
+    document.documentElement.setAttribute("data-theme", "dark");
+    icon.innerHTML = "&#9790;";
+  } else {
     document.documentElement.setAttribute("data-theme", "light");
     icon.innerHTML = "&#9788;";
   }
 
   btn.addEventListener("click", () => {
-    const isLight = document.documentElement.getAttribute("data-theme") === "light";
-    if (isLight) {
-      document.documentElement.removeAttribute("data-theme");
-      localStorage.setItem("4n6-theme", "dark");
-      icon.innerHTML = "&#9790;";
-    } else {
+    const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+    if (isDark) {
       document.documentElement.setAttribute("data-theme", "light");
       localStorage.setItem("4n6-theme", "light");
       icon.innerHTML = "&#9788;";
+    } else {
+      document.documentElement.setAttribute("data-theme", "dark");
+      localStorage.setItem("4n6-theme", "dark");
+      icon.innerHTML = "&#9790;";
     }
   });
 }
