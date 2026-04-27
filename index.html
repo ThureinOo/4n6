@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <script data-goatcounter="https://4n6.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
 
@@ -16,6 +17,7 @@
     <div class="sidebar-header">
       <h1 class="logo"><img src="assets/logo.svg" alt="4n6" class="logo-img"></h1>
       <p class="tagline">forensics cheat sheet</p>
+      <p class="sidebar-views" id="view-count">— views</p>
     </div>
 
     <div class="sidebar-section">
@@ -33,13 +35,9 @@
       <div class="chips" id="filter-category"></div>
     </div>
 
-    <div class="sidebar-section">
-      <h3>Tool</h3>
-      <div class="chips" id="filter-tool"></div>
-    </div>
-
     <div class="sidebar-footer">
       <button class="clear-btn" id="clear-filters">Clear All Filters</button>
+      <p class="sidebar-contribute">Want to add a tool? <a href="contribute.html">Contribute here</a></p>
     </div>
   </aside>
 
@@ -52,6 +50,9 @@
         <input type="text" id="search-input" placeholder="Search tools, commands, techniques..." spellcheck="false">
       </div>
       <span class="entry-count" id="entry-count"></span>
+      <button class="topbar-btn" id="workflow-btn" title="Investigation Workflows">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg>
+      </button>
       <button class="topbar-btn" id="settings-btn" title="Variables">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
       </button>
@@ -84,6 +85,85 @@
           <label>FILE</label>
           <input type="text" id="var-file" placeholder="suspicious.bin" spellcheck="false">
         </div>
+        <div class="var-field">
+          <label>PID</label>
+          <input type="text" id="var-pid" placeholder="1234" spellcheck="false">
+        </div>
+        <div class="var-field">
+          <label>OFFSET</label>
+          <input type="text" id="var-offset" placeholder="0x00000000" spellcheck="false">
+        </div>
+        <div class="var-field">
+          <label>INODE</label>
+          <input type="text" id="var-inode" placeholder="12345" spellcheck="false">
+        </div>
+        <div class="var-field">
+          <label>SECTOR</label>
+          <input type="text" id="var-sector" placeholder="2048" spellcheck="false">
+        </div>
+        <div class="var-field">
+          <label>STREAM_NUM</label>
+          <input type="text" id="var-stream" placeholder="0" spellcheck="false">
+        </div>
+        <div class="var-field">
+          <label>PASSWORD</label>
+          <input type="text" id="var-password" placeholder="secret" spellcheck="false">
+        </div>
+        <div class="var-field">
+          <label>USER</label>
+          <input type="text" id="var-user" placeholder="admin" spellcheck="false">
+        </div>
+        <div class="var-field">
+          <label>DOMAIN</label>
+          <input type="text" id="var-domain" placeholder="corp.local" spellcheck="false">
+        </div>
+        <div class="var-field">
+          <label>HASH</label>
+          <input type="text" id="var-hash" placeholder="aad3b435..." spellcheck="false">
+        </div>
+        <div class="var-field">
+          <label>NTLM_HASH</label>
+          <input type="text" id="var-ntlm" placeholder="aad3b435..." spellcheck="false">
+        </div>
+        <div class="var-field">
+          <label>KEY</label>
+          <input type="text" id="var-key" placeholder="key.pem" spellcheck="false">
+        </div>
+        <div class="var-field">
+          <label>GUID</label>
+          <input type="text" id="var-guid" placeholder="xxxxxxxx-..." spellcheck="false">
+        </div>
+        <div class="var-field">
+          <label>ADS_NAME</label>
+          <input type="text" id="var-ads" placeholder="hidden" spellcheck="false">
+        </div>
+        <div class="var-field">
+          <label>SIZE</label>
+          <input type="text" id="var-size" placeholder="1024" spellcheck="false">
+        </div>
+        <div class="var-field">
+          <label>ENCODED</label>
+          <input type="text" id="var-encoded" placeholder="base64..." spellcheck="false">
+        </div>
+        <div class="var-field">
+          <label>CIPHERTEXT</label>
+          <input type="text" id="var-cipher" placeholder="hex/base64" spellcheck="false">
+        </div>
+      </div>
+    </div>
+
+    <!-- Workflow Picker -->
+    <div class="workflow-panel" id="workflow-panel"></div>
+
+    <!-- Active Workflow Bar -->
+    <div class="workflow-bar" id="workflow-bar" style="display:none">
+      <div class="workflow-bar-left">
+        <span class="workflow-bar-title" id="workflow-bar-title"></span>
+        <span class="workflow-bar-progress" id="workflow-bar-progress"></span>
+      </div>
+      <div class="workflow-bar-right">
+        <div class="workflow-progress-track"><div class="workflow-progress-fill" id="workflow-progress-fill"></div></div>
+        <button class="workflow-close" id="workflow-close">Exit Workflow</button>
       </div>
     </div>
 
@@ -102,17 +182,10 @@
           </div>
         </div>
 
-        <div class="right-section contribute-section">
-          <p class="contribute-text">If you would like to contribute, check out the <a href="contribute.html">contribute</a> page.</p>
-        </div>
 
       </aside>
     </div>
 
-    <footer>
-      <p>4n6 &mdash; Digital Forensics Reference for CTF &amp; Investigations</p>
-      <p>Inspired by <a href="https://thureinoo.github.io/senshu/" target="_blank">Senshu</a>, <a href="https://wadcoms.github.io/" target="_blank">WADComs</a> &amp; <a href="https://gtfobins.github.io/" target="_blank">GTFOBins</a></p>
-    </footer>
   </div>
 
   <script src="js/data.js"></script>
