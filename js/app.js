@@ -692,11 +692,16 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // GoatCounter view count
-  fetch("https://4n6.goatcounter.com/counter/%2F.json")
-    .then(r => r.json())
-    .then(d => {
-      const el = document.getElementById("view-count");
-      if (el && d && d.count) el.textContent = d.count + " views";
-    })
-    .catch(() => {});
+  const gcPaths = [location.pathname, "/4n6/", "/"].map(p => encodeURIComponent(p || "/"));
+  (async () => {
+    const el = document.getElementById("view-count");
+    for (const p of gcPaths) {
+      try {
+        const r = await fetch(`https://4n6.goatcounter.com/counter/${p}.json`);
+        if (!r.ok) continue;
+        const d = await r.json();
+        if (d && d.count && d.count !== "0") { el.textContent = d.count + " views"; return; }
+      } catch (_) {}
+    }
+  })();
 });
