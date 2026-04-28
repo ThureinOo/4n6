@@ -649,6 +649,28 @@ function initSidebar() {
   });
 }
 
+// ========== Mobile Bookmarks Toggle ==========
+function initMobileBookmarks() {
+  const btn = document.getElementById("bookmarks-toggle");
+  const pane = document.getElementById("right-pane");
+
+  const overlay = document.createElement("div");
+  overlay.className = "bookmarks-overlay";
+  document.body.appendChild(overlay);
+
+  btn.addEventListener("click", () => {
+    const open = pane.classList.toggle("open");
+    overlay.classList.toggle("active", open);
+    btn.classList.toggle("active", open);
+  });
+
+  overlay.addEventListener("click", () => {
+    pane.classList.remove("open");
+    overlay.classList.remove("active");
+    btn.classList.remove("active");
+  });
+}
+
 // ========== Init ==========
 document.addEventListener("DOMContentLoaded", () => {
   initTheme();
@@ -658,6 +680,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   initSearch();
   initWorkflows();
+  initMobileBookmarks();
   renderEntries();
   renderBookmarks();
 
